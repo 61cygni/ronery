@@ -1,0 +1,55 @@
+.conversation-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+#conversationContainer {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px; /* Add some padding for the scrollbar */
+    scroll-behavior: smooth;
+}
+
+.conversation-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.conversation-message.user {
+    background-color: rgba(0, 100, 255, 0.2);
+}
+
+.conversation-message.assistant {
+    background-color: rgba(100, 100, 100, 0.2);
+}
+
+.conversation-message .timestamp {
+    font-size: 0.8em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 5px;
+}
+
+.conversation-message .action {
+    font-size: 0.8em;
+    color: rgba(0, 187, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.conversation-message .content {
+    word-wrap: break-word;
+} 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ronery</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .progress-container {
+            width: 80%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 3px;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 20px;
+            background-color: #4CAF50;
+            border-radius: 8px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .input-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 600px;
+            z-index: 100;
+        }
+
+        #userInput {
+            width: 100%;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #userInput::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        #userInput:focus {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div>Loading Scene...</div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="progress-text" id="progressText">0%</div>
+    </div>
+
+    <div class="conversation-sidebar" id="conversationSidebar">
+        <div id="conversationContainer"></div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Enter message...">
+    </div>
+	<script src="./src/main.js" type="module"></script>
+    <script>
+        // Initialize the application after the DOM is loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            // Set up input handling
+            const input = document.getElementById('userInput');
+            if (input) {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const text = this.value;
+                        this.value = ''; // Clear the input
+                        if (window.handleUserInput) {
+                            window.handleUserInput(text);
+                        }
+                    }
+                });
+            }
+        });
+       </script>
+</body>
+</html>
