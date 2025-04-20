@@ -47,4 +47,10 @@ echo "Downloading scene..."
 [ -f "characters/Kiya-Left-turn.fbx" ] || wget https://ronery-assets.fly.storage.tigris.dev/Kiya-Left-turn.fbx -O characters/Kiya-Left-turn.fbx
 [ -f "characters/man-sitting.fbx" ] || wget https://ronery-assets.fly.storage.tigris.dev/man-sitting.fbx -O characters/man-sitting.fbx
 
+# Create symlinks to public/
+echo "Creating symlinks to public/"
+ln -sf "$(pwd)/scenes" public/scenes
+ln -sf "$(pwd)/characters" public/characters
+ln -sf "$(pwd)/audio" public/audio
+
 echo "Installation complete"
