@@ -13,7 +13,7 @@ npm run dev
 ./build.sh -f ../path/to/forge-internal/
 ```
 
-## To Talk to the Bartender
+## To Connect the Bartender to AI 
 
 You'll need a braintrust account [https://www.braintrust.dev/]. The app currently uses grok2 so you'll want to set that up within braintrust. 
 
