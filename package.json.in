@@ -15,7 +15,7 @@
     "@pixi/colord": "^2.9.6",
     "@pixi/sound": "^6.0.0",
     "@vercel/functions": "^2.0.0",
-    "@worldlabsai/forge-internal": "file:../../forge-internal",
+    "@worldlabsai/forge-internal": "file:FORGE_INTERNAL",
     "@xmldom/xmldom": "^0.9.8",
     "base64-js": "^1.5.1",
     "braintrust": "^0.0.197",
