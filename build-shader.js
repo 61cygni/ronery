@@ -5,18 +5,19 @@ import path from 'path';
 import fs from 'fs';
 
 // Default shader input path
-const defaultShaderInput = '../forge-internal/src/shaders/splatDefines.glsl';
+let defaultShaderDir = '../forge-internal/';
 
 // Parse command line arguments
 const args = process.argv.slice(2);
-let shaderInput = defaultShaderInput;
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '-f' && i + 1 < args.length) {
-    shaderInput = args[i + 1];
+    defaultShaderDir = args[i + 1];
     break;
   }
 }
+
+const shaderInput = path.join(defaultShaderDir, 'src/shaders/splatDefines.glsl');
 
 // Create a temporary entry file that imports the shader
 const tempDir = '.shader-build-temp';

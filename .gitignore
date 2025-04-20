@@ -1,0 +1,10 @@
+package.json
+src/shaders/splatDefines.glsl
+scenes/bar.ply
+characters/Kiya-bartending.fbx
+characters/Kiya-dancing.fbx
+characters/Kiya-drinking.fbx
+characters/Kiya-idle.fbx
+characters/Kiya-Laughing.fbx
+characters/Kiya-Left-turn.fbx
+characters/man-sitting.fbx
